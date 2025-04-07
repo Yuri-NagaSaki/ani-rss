@@ -569,7 +569,8 @@ public class TorrentUtil {
         } else if (quarter) {
             Integer year = ani.getYear();
             Integer month = ani.getMonth();
-            downloadPath = StrFormatter.format("{}/{}-{}", downloadPath, year, String.format("%02d", month));
+            Integer quarterStartMonth = ((month - 1) / 3) * 3 + 1;
+            downloadPath = StrFormatter.format("{}/{}/{}", downloadPath, year, quarterStartMonth);
         }
         if (ova) {
             return List.of(new File(downloadPath + "/" + title));
